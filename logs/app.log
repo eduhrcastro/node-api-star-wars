@@ -1,0 +1,38 @@
+[2019-03-13 02:24:51] error: CastError: Cast to ObjectId failed for value "1" at path "_id" for model "Planeta"
+    at new CastError (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/error/cast.js:29:11)
+    at ObjectId.cast (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/schema/objectid.js:242:11)
+    at ObjectId.SchemaType.applySetters (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/schematype.js:849:12)
+    at ObjectId.SchemaType._castForQuery (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/schematype.js:1252:15)
+    at ObjectId.SchemaType.castForQuery (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/schematype.js:1242:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/schematype.js:1221:15)
+    at cast (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/cast.js:307:32)
+    at model.Query.Query.cast (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4340:12)
+    at model.Query.Query._castConditions (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:1723:10)
+    at model.Query.<anonymous> (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:1976:8)
+    at model.Query._wrappedThunk [as _findOne] (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at process.nextTick (/home/eduardocastro/workspace/star-wars/node_modules/kareem/index.js:369:33)
+    at _combinedTickCallback (internal/process/next_tick.js:132:7)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+From previous event:
+    at Object.promiseOrCallback (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/utils.js:269:10)
+    at model.Query.exec (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4054:16)
+    at model.Query.Query.then (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4114:15)
+[2019-03-13 02:24:51] error: GET /planet/1 500 16ms
+[2019-03-13 03:54:55] error: MongoError: The field 'name' must be an array but is of type string in document {_id: ObjectId('5c88a68dce83e7784aeb46a2')}
+    at /home/eduardocastro/workspace/star-wars/node_modules/mongoose/node_modules/mongodb-core/lib/connection/pool.js:581:63
+    at authenticateStragglers (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/node_modules/mongodb-core/lib/connection/pool.js:504:16)
+    at Connection.messageHandler (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/node_modules/mongodb-core/lib/connection/pool.js:540:5)
+    at emitMessageHandler (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/node_modules/mongodb-core/lib/connection/connection.js:310:10)
+    at Socket.<anonymous> (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/node_modules/mongodb-core/lib/connection/connection.js:453:17)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+From previous event:
+    at Object.promiseOrCallback (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/utils.js:269:10)
+    at model.Query.exec (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4054:16)
+    at model.Query.Query.then (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4114:15)
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+[2019-03-13 03:54:55] error: PUT /planet/5c88a68dce83e7784aeb46a2 500 35ms
