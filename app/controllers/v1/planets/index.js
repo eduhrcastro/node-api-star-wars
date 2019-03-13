@@ -73,15 +73,5 @@ module.exports = app => {
     }
   }
 
-  controller.getOneByName = async (req, res, next) => {
-    try {
-      validationResult(req).throw()
-      console.log('aqui')
-      res.status(200).end()
-    } catch (ex) {
-      next(ex)
-    }
-  }
-
   return controller
 }
