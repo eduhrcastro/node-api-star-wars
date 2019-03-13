@@ -50,3 +50,8 @@ From previous event:
     at <anonymous>
     at process._tickCallback (internal/process/next_tick.js:189:7)
 [2019-03-13 05:13:44] error: POST /planets 500 35ms
+[2019-03-13 05:37:31] error: TypeError: Cannot read property 'films' of undefined
+    at controller.create (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:42:34)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+[2019-03-13 05:37:31] error: POST /planets 500 1437ms

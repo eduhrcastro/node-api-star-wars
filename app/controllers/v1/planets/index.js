@@ -39,7 +39,7 @@ module.exports = app => {
 
       let planet = await swPlanets.getByName(bodyData.name)
 
-      bodyData['films'] = planet.films.length
+      bodyData['films'] = planet!=null && planet.films!=null ? planet.films.length : 0
 
       let query = await Planets.create(bodyData)
 
