@@ -14,7 +14,11 @@ module.exports = app => {
       terrain: [{
         type: String,
         required: true
-      }]
+      }],
+      films: {
+        type: Number,
+        default: 0
+      }
     },
     {
       timestamps: true

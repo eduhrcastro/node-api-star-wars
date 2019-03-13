@@ -36,3 +36,17 @@ From previous event:
     at model.Query.Query.then (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4114:15)
     at process._tickCallback (internal/process/next_tick.js:189:7)
 [2019-03-13 03:54:55] error: PUT /planet/5c88a68dce83e7784aeb46a2 500 35ms
+[2019-03-13 04:57:07] error: ReferenceError: planets is not defined
+    at Object.lib.getAll (/home/eduardocastro/workspace/star-wars/app/libs/starwars/api.js:14:29)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+[2019-03-13 04:57:07] error: POST /planets 500 1372ms
+[2019-03-13 05:13:44] error: TypeError: Cannot read property 'results' of undefined
+    at Object.lib.getByName (/home/eduardocastro/workspace/star-wars/app/libs/starwars/planets/api.js:26:72)
+    at controller.create (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:41:34)
+    at Layer.handle [as handle_request] (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/route.js:137:13)
+    at runner.then.errors (/home/eduardocastro/workspace/star-wars/node_modules/express-validator/check/check.js:16:7)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+[2019-03-13 05:13:44] error: POST /planets 500 35ms

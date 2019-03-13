@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "app-module-path": "^2.2.0",
+    "axios": "^0.18.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "bodyparser-json-error": "^1.0.0",

@@ -5,6 +5,7 @@ const _ = require('lodash')
 module.exports = app => {
   const controller = {}
   const Planets = app.models.planets
+  const swPlanets = app.libs.starwars.planets.api
 
   controller.getAll = async (req, res, next) => {
     try {
@@ -34,7 +35,11 @@ module.exports = app => {
     try {
       validationResult(req).throw()
 
-      const bodyData = matchedData(req, { locations: ['body'] })
+      let bodyData = matchedData(req, { locations: ['body'] })
+
+      let planet = await swPlanets.getByName(bodyData.name)
+
+      bodyData['films'] = planet.films.length
 
       let query = await Planets.create(bodyData)
 
