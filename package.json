@@ -54,7 +54,10 @@
     "url": "git+https://github.com/eduhrcastro/node-api-star-wars.git"
   },
   "keywords": [
-    "node"
+    "nodejs",
+    "mongodb",
+    "rest-api",
+    "starwars"
   ],
   "author": "Eduardo Castro",
   "license": "ISC",
