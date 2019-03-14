@@ -1,4 +1,3 @@
-const validator = require('validator')
 const _ = require('lodash')
 
 module.exports = app => {
@@ -8,7 +7,7 @@ module.exports = app => {
     isObjectId: _id => {
       return mongoose.Types.ObjectId.isValid(_id)
     },
-    isArrayOfString: array  => {
+    isArrayOfString: array => {
       return _.every(array, String)
     }
   }

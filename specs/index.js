@@ -1,0 +1,2 @@
+/* Hooks */
+require('./hooks.js')

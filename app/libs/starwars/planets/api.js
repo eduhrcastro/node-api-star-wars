@@ -9,15 +9,14 @@ module.exports = app => {
     let page = 1
     let planets = []
 
-    while(i < 1){
-      let response = await axios.get('https://swapi.co/api/planets?page='+page)
+    while (i < 1) {
+      let response = await axios.get('https://swapi.co/api/planets?page=' + page)
       planets.push(response.data.results)
       page++
-      if(response.data.next == null)
-        i++
+      if (response.data.next == null) { i++ }
     }
 
-    planets = query = [].concat.apply([], planets)
+    planets = [].concat.apply([], planets)
 
     return planets
   }
@@ -27,10 +26,10 @@ module.exports = app => {
     let query = _.find(response.data.results, {'name': name})
 
     let page = 2
-    while(query === null && response.data.next !== null){
-        response = await axios.get('https://swapi.co/api/planets/?page='+page)
-        query = _.find(response.data.results, {'name': name})
-        page++
+    while (query === undefined && response.data.next != null) {
+      response = await axios.get('https://swapi.co/api/planets/?page=' + page)
+      query = _.find(response.data.results, {'name': name})
+      page++
     }
 
     return query

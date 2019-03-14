@@ -5,8 +5,7 @@ module.exports = app => {
 
     let formattedError = errorFormatter.format(err)
 
-    if (formattedError.statusCode === 500)
-      errorsLogger.dumpError(err)
+    if (formattedError.statusCode === 500) errorsLogger.dumpError(err)
 
     res.status(formattedError.statusCode).send(formattedError.errorData)
   }

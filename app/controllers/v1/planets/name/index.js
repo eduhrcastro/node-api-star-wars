@@ -1,5 +1,4 @@
 const { validationResult } = require('express-validator/check')
-const _ = require('lodash')
 
 module.exports = app => {
   const controller = {}

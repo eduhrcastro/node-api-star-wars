@@ -39,7 +39,7 @@ module.exports = app => {
 
       let planet = await swPlanets.getByName(bodyData.name)
 
-      bodyData['films'] = planet!=null && planet.films!=null ? planet.films.length : 0
+      bodyData['films'] = planet != null && planet.films != null ? planet.films.length : 0
 
       let query = await Planets.create(bodyData)
 
@@ -55,8 +55,7 @@ module.exports = app => {
 
       let bodyData = matchedData(req, { locations: ['body'] })
 
-      if(_.isEmpty(bodyData))
-        res.status(204).end()
+      if (_.isEmpty(bodyData)) { res.status(204).end() }
 
       let query = await Planets.findOneAndUpdate({_id: req.params.id}, bodyData, {new: true}).lean()
 

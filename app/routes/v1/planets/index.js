@@ -102,5 +102,4 @@ module.exports = app => {
       ],
       controller.deleteOne
     )
-    
 }
