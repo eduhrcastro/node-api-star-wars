@@ -55,3 +55,51 @@ From previous event:
     at <anonymous>
     at process._tickCallback (internal/process/next_tick.js:189:7)
 [2019-03-13 05:37:31] error: POST /planets 500 1437ms
+[2019-03-15 00:38:08] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:7298)
+    at <anonymous>
+[2019-03-15 00:41:03] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:7361)
+    at <anonymous>
+[2019-03-15 00:42:25] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:7715)
+    at <anonymous>
+[2019-03-15 00:44:05] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:7298)
+    at <anonymous>
+[2019-03-15 00:48:30] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:7298)
+    at <anonymous>
+[2019-03-15 00:51:44] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:7298)
+    at <anonymous>

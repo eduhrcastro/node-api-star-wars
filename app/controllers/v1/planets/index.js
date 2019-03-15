@@ -57,7 +57,7 @@ module.exports = app => {
 
       if (_.isEmpty(bodyData)) { res.status(204).end() }
 
-      let query = await Planets.findOneAndUpdate({_id: req.params.id}, bodyData, {new: true}).lean()
+      let query = await Planets.findByIdAndUpdate(req.params.id, bodyData, {new: true}).lean()
 
       res.status(200).send(query)
     } catch (ex) {

@@ -89,6 +89,7 @@ module.exports = () => {
 
   /* Ensure index is now deprecated: https://github.com/Automattic/mongoose/issues/6890 */
   mongoose.set('useCreateIndex', true)
+  mongoose.set('useFindAndModify', false)
 
   /* Cookie Parser */
   app.use(cookieParser())

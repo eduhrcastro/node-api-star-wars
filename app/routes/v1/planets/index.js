@@ -84,7 +84,9 @@ module.exports = app => {
           .custom(value => {
             return customValidators.isArrayOfString(value)
           })
-          .withMessage('Todos os itens do array de clima precisam ser string.')
+          .withMessage('Todos os itens do array de clima precisam ser string.'),
+        body('films')
+          .optional()
       ],
       controller.update
     )

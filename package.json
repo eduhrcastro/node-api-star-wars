@@ -45,7 +45,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_PATH=. NODE_ENV=development nyc mocha --exit specs/index.js",
+    "test": "NODE_PATH=. NODE_ENV=development nyc mocha --timeout 15000 --exit specs/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint app.js app/** config/** specs/**  --ext .js"
   },
