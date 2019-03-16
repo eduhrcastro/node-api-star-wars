@@ -9,6 +9,9 @@ $ yarn install
 $ gulp
 ```
 
+## Server
+run http://localhost:5000
+
 ## Test
 
 ```sh
