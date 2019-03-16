@@ -16,7 +16,7 @@ Listening on:
 http://localhost:5000
 ```
 
-## Test
+## Tests
 
 ```sh
 $ npm test
@@ -26,4 +26,11 @@ $ npm test
 
 ```sh
 $ npm run lint
+```
+
+## Documentation
+
+View on Browser:
+```sh
+http://localhost:5000/#/documentation
 ```

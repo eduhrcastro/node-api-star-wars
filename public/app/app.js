@@ -29,6 +29,10 @@ angular.module('star-wars', [
         templateUrl: 'app/views/home/home.html',
         controller: 'HomeCtrl as homeCtrl'
       })
+      .when('/documentation', {
+        templateUrl: 'app/views/home/home.html',
+        controller: 'HomeCtrl as homeCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       })
