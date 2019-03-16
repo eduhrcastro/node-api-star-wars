@@ -10,7 +10,11 @@ $ gulp
 ```
 
 ## Server
-run http://localhost:5000
+
+Listening on:
+```sh
+http://localhost:5000
+```
 
 ## Test
 
