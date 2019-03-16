@@ -10,6 +10,6 @@ services:
   - mongodb
 
 script:
-  - npm run lint && npm test
+  - npm run lint && npm run htmlhint && npm run sasslint && npm test
 
 after_success: npm run coverage

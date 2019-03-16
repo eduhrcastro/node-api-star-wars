@@ -5,8 +5,8 @@
 ## Build
 
 ```sh
-$ npm install
-$ node app.js
+$ yarn install
+$ gulp
 ```
 
 ## Test

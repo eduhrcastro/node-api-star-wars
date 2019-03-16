@@ -1,0 +1,182 @@
+<main class="container">
+
+  <h1 class="m-4 d-flex justify-content-center">
+    <span class="badge badge-info">Especificações da API para gerenciamento dos planetas</span>
+  </h1>
+
+  <section class="m-4">
+
+    <h4 class="text-center p-2">Estrutura hierárquica dos atributos que podem ser utilizados</h4>
+
+    <h5 class="text-center p-2">Schema (planets)</h5>
+
+    <div class="row">
+
+      <div class="col-4 mx-auto">
+
+        <div class="card">
+
+          <div class="card-header">
+            <pre class="p-2">{{homeCtrl.schema | json}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="m-4">
+
+    <h4 class="text-center p-2">Atributos que podem ser usados para o CRUD do planeta</h4>
+
+    <h5 class="text-center p-2">Atributos (planets)</h5>
+
+    <div class="table-responsive md-2">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Atributo</th>
+            <th>Descrição</th>
+            <th>Obrigatório</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Valor referente ao nome do planeta</td>
+            <td>Sim</td>
+            <td>String</td>
+          </tr>
+          <tr>
+            <td>Climate</td>
+            <td>Valor referente ao clima do planeta</td>
+            <td>Sim</td>
+            <td>Array</td>
+          </tr>
+          <tr>
+            <td>Terrain</td>
+            <td>Valor referente ao terreno do usuário</td>
+            <td>Sim</td>
+            <td>Array</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="m-4">
+
+    <h4 class="text-center p-2">API dos planetas</h4>
+
+    <h5 class="text-center p-2">API (planets)</h5>
+
+    <div class="table-responsive md-2">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td><span class="badge badge-info">GET</span></td>
+            <td>/planets</td>
+            <td>Lista todos os planetas</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-success">POST</span></td>
+            <td>/planets</td>
+            <td>Cria um novo planeta</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-info">GET</span></td>
+            <td>/planets/:id</td>
+            <td>Lista um planeta</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-secondary">PUT</span></td>
+            <td>/planets/:id</td>
+            <td>Atualiza um planeta</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-danger">DELETE</span></td>
+            <td>/planets/:id</td>
+            <td>Deleta um planeta</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-info">GET</span></td>
+            <td>/planets/name/:name</td>
+            <td>Pesquisa um planeta pelo nome</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="m-4">
+
+    <h4 class="text-center p-2">Exemplo</h4>
+
+    <h5 class="text-center p-2">Exemplo de uso e retorno da API</h5>
+
+    <div class="row mt-4">
+
+      <div class="col-6 mx-auto">
+
+        <p>Exemplo de Requisição: </p>
+
+        <div class="card">
+
+          <div class="card-header text-center">
+            get http://localhost:5000/planets/5c8b208e87397f3901900c0c
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+
+      <div class="col-6 mx-auto">
+
+        <p>Exemplo de Resposta: </p>
+
+        <div class="card">
+
+          <div class="card-header">
+            <pre class="p-2">{{homeCtrl.response | json}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- <section id="errors">
+
+    <h2>Erros</h2>
+
+    <h3>Códigos de Erros (user)</h3>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Mensagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2300001</td>
+            <td>Já possui um usuário com o CPF informado</td>
+          </tr>
+          <tr>
+            <td>2300002</td>
+            <td>O CPF passado por parâmetro é inválido</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section> -->
+</main>

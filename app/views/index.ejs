@@ -1,22 +1,48 @@
 <!doctype html>
 <html>
 
-<head>
+  <head>
 
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="description"
+          content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-  <meta name="author" content="Eduardo Castro">
-  <meta name="fragment" content="!">
+    <meta name="author"
+          content="Eduardo Castro">
+    <meta name="fragment"
+          content="!">
 
-  <title>REST API</title>
-  <meta name="description" content="REST API">
+    <title>REST API</title>
+    <meta name="description"
+          content="REST API">
 
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Sansita"
+          rel="stylesheet">
 
-<body>
-  <h1>REST API</h1>
-</body>
+    <!-- Vendors -->
+    <link rel="stylesheet"
+          href="dist/vendors.min.css">
+
+    <!-- App Styles -->
+    <link rel="stylesheet"
+          href="dist/app.min.css">
+
+  </head>
+
+  <body ng-app="star-wars">
+
+    <div id="views"
+         class="views"
+         ng-view=""
+         autoscroll="true"></div>
+
+    <!-- Vendors -->
+    <script src="dist/vendors.min.js"></script>
+
+    <!-- Angular App -->
+    <script src="dist/app.min.js"></script>
+  </body>
 
 </html>
