@@ -18,6 +18,9 @@ http://localhost:5000
 
 ## Tests
 
+1. To run locally create file '.coveralls.yml' and set your 'repo_token'
+
+2. Run test:
 ```sh
 $ npm test
 ```
