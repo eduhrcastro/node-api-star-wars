@@ -7,14 +7,14 @@ module.exports = app => {
     },
     isArrayOfString: array => {
       let i = 0
-      while (i < array.length && typeof array[i] === 'string') { i++ }
+      while (i < array.length && typeof array[i] === 'string' && isNaN(array[i])) { i++ }
       return i === array.length
     },
     isNumber: number => {
-      return !isNaN(number)
+      return typeof number === 'number' && !isNaN(number)
     },
     isNumberPositive: number => {
-      return number > -1
+      return typeof number === 'number' && number > -1
     }
   }
 

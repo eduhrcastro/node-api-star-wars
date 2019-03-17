@@ -34,6 +34,11 @@ module.exports = app => {
     try {
       validationResult(req).throw()
 
+      if (await Planets.findById(req.params.id) == null) {
+        res.status(404).end()
+        return
+      }
+
       let query = await Planets.findById(req.params.id).lean()
 
       res.status(200).send(response.getPlanet(query))
@@ -85,6 +90,11 @@ module.exports = app => {
   controller.deleteOne = async (req, res, next) => {
     try {
       validationResult(req).throw()
+
+      if (await Planets.findById(req.params.id) == null) {
+        res.status(404).end()
+        return
+      }
 
       let query = await Planets.findOneAndDelete({_id: req.params.id})
 
