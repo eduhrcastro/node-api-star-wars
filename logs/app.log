@@ -104,3 +104,32 @@ From previous event:
     at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
     at <anonymous>
 [2019-03-17 00:15:09] error: PUT /planets 500 5ms
+[2019-03-17 15:56:20] error: POST /planets 500 3ms
+[2019-03-17 15:56:20] error: POST /planets 500 0ms
+[2019-03-17 15:56:20] error: POST /planets 500 1ms
+[2019-03-17 15:56:20] error: GET /planets/1 500 2ms
+[2019-03-17 15:56:20] error: PUT /planets/1 500 1ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226db 500 1ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226dc 500 1ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226dd 500 0ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226de 500 1ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226df 500 0ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226e0 500 0ms
+[2019-03-17 15:56:20] error: PUT /planets/5c8e9854e07e2320fbc226e1 500 1ms
+[2019-03-17 15:56:20] error: DELETE /planets/1 500 1ms
+[2019-03-17 19:36:58] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.getOne (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8631)
+    at <anonymous>
+[2019-03-17 19:36:58] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.getOne (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/name/index.js:1:2825)
+    at <anonymous>

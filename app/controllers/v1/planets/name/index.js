@@ -11,6 +11,11 @@ module.exports = app => {
 
       let query = await Planets.findOne({name: req.params.name}).lean()
 
+      if (query == null) {
+        res.status(404).end()
+        return
+      }
+
       res.status(200).send(response.getPlanet(query))
     } catch (ex) {
       next(ex)

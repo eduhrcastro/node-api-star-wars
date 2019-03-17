@@ -34,12 +34,12 @@ module.exports = app => {
     try {
       validationResult(req).throw()
 
-      if (await Planets.findById(req.params.id) == null) {
+      let query = await Planets.findById(req.params.id).lean()
+
+      if (query == null) {
         res.status(404).end()
         return
       }
-
-      let query = await Planets.findById(req.params.id).lean()
 
       res.status(200).send(response.getPlanet(query))
     } catch (ex) {

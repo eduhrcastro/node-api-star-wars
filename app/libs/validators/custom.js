@@ -15,6 +15,9 @@ module.exports = app => {
     },
     isNumberPositive: number => {
       return typeof number === 'number' && number > -1
+    },
+    isNotNumber: number => {
+      return isNaN(number)
     }
   }
 

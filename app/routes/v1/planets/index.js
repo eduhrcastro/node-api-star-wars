@@ -13,7 +13,11 @@ module.exports = app => {
           .exists()
           .withMessage('Nome é obrigatório.')
           .isString()
-          .withMessage('Nome deve ser string.'),
+          .withMessage('Nome deve ser string.')
+          .custom(value => {
+            return customValidators.isNotNumber(value)
+          })
+          .withMessage('Nome não pode ser um número.'),
         body('climate')
           .exists()
           .withMessage('Clima é obrigatório.')
@@ -65,7 +69,11 @@ module.exports = app => {
         body('name')
           .optional()
           .isString()
-          .withMessage('Nome deve ser string.'),
+          .withMessage('Nome deve ser string.')
+          .custom(value => {
+            return customValidators.isNotNumber(value)
+          })
+          .withMessage('Nome não pode ser um número.'),
         body('climate')
           .optional()
           .isArray()

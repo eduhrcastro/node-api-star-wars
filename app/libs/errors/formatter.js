@@ -14,7 +14,14 @@ module.exports = app => {
         errorData: {
           errorCode: errors.REQ001.response.errorCode,
           description: errors.REQ001.response.description,
-          errors: err.array({ onlyFirstError: true })
+          errors: err.array({ onlyFirstError: true }).map(erro => {
+            return {
+              location: erro.location,
+              param: erro.param,
+              value: erro.value || '',
+              msg: erro.msg
+            }
+          })
         }
       }
       /* REQ-003 error (Mongoose duplicated key) */

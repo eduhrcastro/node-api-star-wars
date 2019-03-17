@@ -139,10 +139,506 @@ describe('Planets', () => {
           done()
         })
     })
+
+    it('it should unsuccessful create a new planet with only body name on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: 'Alderaan'
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('value')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with only body climate on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          climate: 'temperate'
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          // console.log(res.body)
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('value')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with only body terrain on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          terrain: ['grasslands', 'mountains']
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with empty body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({ })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with invalid name is a type number body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: 4,
+          climate: ['temperate'],
+          terrain: ['grasslands', 'mountains']
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with invalid name is a string number body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: '4',
+          climate: ['temperate'],
+          terrain: ['grasslands', 'mountains']
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with invalid climate is string body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: 'Alderaan',
+          climate: 'temperate',
+          terrain: ['grasslands', 'mountains']
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with invalid climate is not array of the strings body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: 'Alderaan',
+          climate: ['temperate', 4],
+          terrain: ['grasslands', 'mountains']
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with invalid terrain is string body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: 'Alderaan',
+          climate: ['temperate'],
+          terrain: 'grasslands'
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+
+    it('it should unsuccessful create a new planet with invalid terrain is not array of the strings body on /planets POST', done => {
+      chai.request(server)
+        .post('/planets')
+        .send({
+          name: 'Alderaan',
+          climate: ['temperate'],
+          terrain: ['grasslands', 4]
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
   })
 
   /* GET ONE */
-  describe('GET ONE', () => {
+  describe('GET ONE BY ID', () => {
     it('it should successfully get one planet by id on /planets/:id GET', done => {
       Planet.create(planet).then(res => {
         const planetId = res._id.toString()
@@ -654,13 +1150,65 @@ describe('Planets', () => {
         })
     })
 
-    it('it should unsuccessful update one planet with invalid body name on /planets/:id PUT', done => {
+    it('it should unsuccessful update one planet with invalid body name is a number on /planets/:id PUT', done => {
       Planet.create(planet).then(res => {
         const planetId = res._id.toString()
         chai.request(server)
           .put('/planets/' + planetId)
           .send({
             name: 3
+          })
+          .end((err, res) => {
+            if (err) done(err)
+
+            res.should.have.status(400)
+            res.body.should.be.a('object')
+
+            res.body.should.have.property('errorCode')
+            res.body.errorCode.should.be.a('string')
+            res.body.should.have.property('errorCode').eql('REQ-001')
+
+            res.body.should.have.property('description')
+            res.body.description.should.be.a('string')
+
+            res.body.should.have.property('errors')
+            res.body.errors.should.be.a('array')
+
+            res.body.errors.forEach(item => {
+              item.should.be.a('object')
+
+              item.should.have.property('location')
+              item.location.should.be.a('string')
+
+              item.should.have.property('param')
+              item.param.should.be.a('string')
+
+              item.should.have.property('value')
+
+              item.should.have.property('msg')
+              item.msg.should.be.a('string')
+            })
+
+            let keys = Object.keys(res.body)
+            keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+            res.body.errors.forEach(item => {
+              keys = Object.keys(item)
+              keys.should.to.eql(['location', 'param', 'value', 'msg'])
+            })
+
+            done()
+          })
+      })
+    })
+
+    it('it should unsuccessful update one planet with invalid body name is a string number on /planets/:id PUT', done => {
+      Planet.create(planet).then(res => {
+        const planetId = res._id.toString()
+        chai.request(server)
+          .put('/planets/' + planetId)
+          .send({
+            name: '3'
           })
           .end((err, res) => {
             if (err) done(err)
@@ -1020,7 +1568,7 @@ describe('Planets', () => {
   })
 
   /* DELETE ONE */
-  describe('DELETE ONE', () => {
+  describe('DELETE ONE BY ID', () => {
     it('it should successfully delete one planet on /planets/:id DELETE', done => {
       Planet.create(planet).then(res => {
         const planetId = res._id.toString()
