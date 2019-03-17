@@ -5,6 +5,7 @@ const server = require('app.js')
 chai.should()
 
 let planet = require('specs/resources/v1/schemas/planet.js')
+let planetKeys = require('specs/resources/v1/keys/planet.js')
 const Planet = server.models.planets
 
 chai.use(chaiHttp)
@@ -20,6 +21,10 @@ describe('Planets By Name', () => {
 
           res.should.have.status(200)
           res.body.should.be.a('object')
+
+          /* Correct keys passing */
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(planetKeys)
 
           /* Property Name */
           res.body.should.have.property('name')
@@ -47,6 +52,8 @@ describe('Planets By Name', () => {
 
           /* Property _id */
           res.body.should.have.property('_id')
+
+          res.body.should.not.have.property('__v')
 
           done()
         })

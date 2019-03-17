@@ -1,0 +1,105 @@
+[2019-03-16 17:06:51] error: TypeError: Cannot read property 'lean' of undefined
+    at controller.getAll (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:26:9)
+    at Layer.handle [as handle_request] (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/layer.js:95:5)
+    at /home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:275:10)
+    at session (/home/eduardocastro/workspace/star-wars/node_modules/express-session/index.js:454:7)
+    at Layer.handle [as handle_request] (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:317:13)
+    at /home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:275:10)
+    at /home/eduardocastro/workspace/star-wars/node_modules/express-winston/index.js:364:9
+    at Layer.handle [as handle_request] (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:317:13)
+    at /home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/router/index.js:47:12)
+[2019-03-16 17:06:51] error: GET /planets 500 7ms
+[2019-03-16 17:42:49] error: MongoError: Failed to parse: { find: "planetas", filter: {}, projection: {}, skip: 20, limit: "20", returnKey: false, showRecordId: false, $db: "starwars-dev" }. 'limit' field must be numeric.
+    at /home/eduardocastro/workspace/star-wars/node_modules/mongodb-core/lib/connection/pool.js:581:63
+    at authenticateStragglers (/home/eduardocastro/workspace/star-wars/node_modules/mongodb-core/lib/connection/pool.js:504:16)
+    at Connection.messageHandler (/home/eduardocastro/workspace/star-wars/node_modules/mongodb-core/lib/connection/pool.js:540:5)
+    at emitMessageHandler (/home/eduardocastro/workspace/star-wars/node_modules/mongodb-core/lib/connection/connection.js:310:10)
+    at Socket.<anonymous> (/home/eduardocastro/workspace/star-wars/node_modules/mongodb-core/lib/connection/connection.js:453:17)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+From previous event:
+    at Object.promiseOrCallback (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/utils.js:269:10)
+    at model.Query.exec (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4054:16)
+    at model.Query.Query.then (/home/eduardocastro/workspace/star-wars/node_modules/mongoose/lib/query.js:4114:15)
+[2019-03-16 17:42:49] error: GET /planets?page=2&perPage=20 500 52ms
+[2019-03-16 22:35:48] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>
+[2019-03-16 22:38:11] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>
+[2019-03-16 22:39:38] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>
+[2019-03-16 22:40:24] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>
+[2019-03-16 22:41:58] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>
+[2019-03-16 22:43:04] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>
+[2019-03-16 22:46:02] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8606)
+    at <anonymous>
+[2019-03-16 22:50:33] error: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.json (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:264:10)
+    at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
+    at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
+    at <anonymous>

@@ -9,6 +9,12 @@ module.exports = app => {
     },
     isArrayOfString: array => {
       return _.every(array, String)
+    },
+    isNumber: number => {
+      return !isNaN(number)
+    },
+    isNumberPositive: number => {
+      return number > -1
     }
   }
 

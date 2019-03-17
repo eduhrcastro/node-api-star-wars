@@ -6,14 +6,25 @@ module.exports = app => {
   const controller = {}
   const Planets = app.models.planets
   const swPlanets = app.libs.starwars.planets.api
+  const response = app.libs.responses.planets
 
   controller.getAll = async (req, res, next) => {
     try {
       validationResult(req).throw()
 
-      let query = await Planets.find().lean()
+      let page = parseInt(req.query.page) || 1
+      let perPage = parseInt(req.query.perPage) || 10
+      let url = req.protocol + '://' + req.get('host')
 
-      res.status(200).send(query)
+      let query = await Planets.find()
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .sort({name: 1})
+        .lean()
+
+      let count = await Planets.count()
+
+      res.status(200).send(response.getPlanets(url, query, count, page, perPage))
     } catch (ex) {
       next(ex)
     }
@@ -25,7 +36,7 @@ module.exports = app => {
 
       let query = await Planets.findById(req.params.id).lean()
 
-      res.status(200).send(query)
+      res.status(200).send(response.getPlanet(query))
     } catch (ex) {
       next(ex)
     }
@@ -43,7 +54,7 @@ module.exports = app => {
 
       let query = await Planets.create(bodyData)
 
-      res.status(201).send(query)
+      res.status(201).send(response.getPlanet(query))
     } catch (ex) {
       next(ex)
     }
@@ -55,11 +66,14 @@ module.exports = app => {
 
       let bodyData = matchedData(req, { locations: ['body'] })
 
-      if (_.isEmpty(bodyData)) { res.status(204).end() }
+      if (_.isEmpty(bodyData)) {
+        res.status(204).end()
+        return
+      }
 
       let query = await Planets.findByIdAndUpdate(req.params.id, bodyData, {new: true}).lean()
 
-      res.status(200).send(query)
+      res.status(200).send(response.getPlanet(query))
     } catch (ex) {
       next(ex)
     }
@@ -71,7 +85,7 @@ module.exports = app => {
 
       let query = await Planets.findOneAndDelete({_id: req.params.id})
 
-      res.status(200).send(query)
+      res.status(200).send(response.getPlanet(query))
     } catch (ex) {
       next(ex)
     }

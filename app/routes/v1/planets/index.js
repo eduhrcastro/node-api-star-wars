@@ -64,12 +64,10 @@ module.exports = app => {
           .withMessage('ID do planeta é inválido.'),
         body('name')
           .optional()
-          .withMessage('Nome é obrigatório.')
           .isString()
           .withMessage('Nome deve ser string.'),
         body('climate')
           .optional()
-          .withMessage('Clima é obrigatório.')
           .isArray()
           .withMessage('O campo clima precisa ser um array.')
           .custom(value => {
@@ -78,7 +76,6 @@ module.exports = app => {
           .withMessage('Todos os itens do array de clima precisam ser string.'),
         body('terrain')
           .optional()
-          .withMessage('Terreno é obrigatório.')
           .isArray()
           .withMessage('O campo terreno precisa ser um array.')
           .custom(value => {
@@ -87,6 +84,14 @@ module.exports = app => {
           .withMessage('Todos os itens do array de clima precisam ser string.'),
         body('films')
           .optional()
+          .custom(value => {
+            return customValidators.isNumber(value)
+          })
+          .withMessage('O campo filmes precisa ser um número.')
+          .custom(value => {
+            return customValidators.isNumberPositive(value)
+          })
+          .withMessage('O campo filmes precisa ser maior ou igual a zero.')
       ],
       controller.update
     )
