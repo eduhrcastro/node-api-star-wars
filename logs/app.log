@@ -103,3 +103,4 @@ From previous event:
     at ServerResponse.send (/home/eduardocastro/workspace/star-wars/node_modules/express/lib/response.js:158:21)
     at controller.update (/home/eduardocastro/workspace/star-wars/app/controllers/v1/planets/index.js:1:8603)
     at <anonymous>
+[2019-03-17 00:15:09] error: PUT /planets 500 5ms

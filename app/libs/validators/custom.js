@@ -1,5 +1,3 @@
-const _ = require('lodash')
-
 module.exports = app => {
   const mongoose = app.locals.mongoose
 
@@ -8,7 +6,9 @@ module.exports = app => {
       return mongoose.Types.ObjectId.isValid(_id)
     },
     isArrayOfString: array => {
-      return _.every(array, String)
+      let i = 0
+      while (i < array.length && typeof array[i] === 'string') { i++ }
+      return i === array.length
     },
     isNumber: number => {
       return !isNaN(number)

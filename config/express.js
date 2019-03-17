@@ -118,6 +118,9 @@ module.exports = () => {
   const errorsMiddleware = require('./errors/middleware')(app)
   app.use(errorsMiddleware)
 
+  const notFoundHandler = require('./errors/notFoundMiddleware')
+  app.use(notFoundHandler)
+
   /* Load Database configs */
   require('./database')(app)
 

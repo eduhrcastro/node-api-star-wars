@@ -476,6 +476,264 @@ describe('Planets', () => {
     })
   })
 
+  it('it should unsuccessful update one planet without param id on /planets/:id PUT', done => {
+    chai.request(server)
+      .put('/planets')
+      .send(planet)
+      .end((err, res) => {
+        if (err) done(err)
+
+        res.should.have.status(404)
+        res.body.should.be.a('object')
+
+        res.body.should.have.property('statusCode')
+        res.body.statusCode.should.be.a('number')
+        res.body.should.have.property('statusCode').eql(404)
+
+        res.body.should.have.property('errorData')
+        res.body.errorData.should.be.a('object')
+
+        res.body.errorData.should.have.property('errorCode')
+        res.body.errorData.errorCode.should.be.a('string')
+        res.body.errorData.should.have.property('errorCode').eql('SRV-002')
+
+        res.body.errorData.should.have.property('description')
+        res.body.errorData.description.should.be.a('string')
+
+        /* Correct keys passing */
+        let keys = Object.keys(res.body)
+        keys.should.to.eql(['statusCode', 'errorData'])
+
+        keys = Object.keys(res.body.errorData)
+        keys.should.to.eql(['errorCode', 'description'])
+
+        done()
+      })
+  })
+
+  it('it should unsuccessful update one planet with invalid param id on /planets/:id PUT', done => {
+    chai.request(server)
+      .put('/planets/1')
+      .send(planet)
+      .end((err, res) => {
+        if (err) done(err)
+
+        res.should.have.status(400)
+        res.body.should.be.a('object')
+
+        res.body.should.have.property('errorCode')
+        res.body.errorCode.should.be.a('string')
+        res.body.should.have.property('errorCode').eql('REQ-001')
+
+        res.body.should.have.property('description')
+        res.body.description.should.be.a('string')
+
+        res.body.should.have.property('errors')
+        res.body.errors.should.be.a('array')
+
+        res.body.errors.forEach(item => {
+          item.should.be.a('object')
+
+          item.should.have.property('location')
+          item.location.should.be.a('string')
+
+          item.should.have.property('param')
+          item.param.should.be.a('string')
+
+          item.should.have.property('value')
+          item.value.should.be.a('string')
+
+          item.should.have.property('msg')
+          item.msg.should.be.a('string')
+        })
+
+        /* Correct keys passing */
+        let keys = Object.keys(res.body)
+        keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+        res.body.errors.forEach(item => {
+          keys = Object.keys(item)
+          keys.should.to.eql(['location', 'param', 'value', 'msg'])
+        })
+
+        done()
+      })
+  })
+
+  it('it should unsuccessful update one planet with unexists param id on /planets/:id PUT', done => {
+    chai.request(server)
+      .put('/planets/5c8b276073c26a41040f2c9d')
+      .send(planet)
+      .end((err, res) => {
+        if (err) done(err)
+
+        res.should.have.status(404)
+        res.body.should.be.a('object')
+
+        /* Correct keys passing */
+        let keys = Object.keys(res.body)
+        keys.should.to.eql([])
+
+        done()
+      })
+  })
+
+  it('it should unsuccessful update one planet with invalid body name on /planets/:id PUT', done => {
+    Planet.create(planet).then(res => {
+      const planetId = res._id.toString()
+      chai.request(server)
+        .put('/planets/' + planetId)
+        .send({
+          name: 3
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('value')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+  })
+
+  it('it should unsuccessful update one planet with body climate is string on /planets/:id PUT', done => {
+    Planet.create(planet).then(res => {
+      const planetId = res._id.toString()
+      chai.request(server)
+        .put('/planets/' + planetId)
+        .send({
+          climate: 'temperate'
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('value')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+  })
+
+  it('it should unsuccessful update one planet with body climate is array of mist types on /planets/:id PUT', done => {
+    Planet.create(planet).then(res => {
+      const planetId = res._id.toString()
+      chai.request(server)
+        .put('/planets/' + planetId)
+        .send({
+          climate: ['temperate', 4]
+        })
+        .end((err, res) => {
+          if (err) done(err)
+
+          res.should.have.status(400)
+          res.body.should.be.a('object')
+
+          res.body.should.have.property('errorCode')
+          res.body.errorCode.should.be.a('string')
+          res.body.should.have.property('errorCode').eql('REQ-001')
+
+          res.body.should.have.property('description')
+          res.body.description.should.be.a('string')
+
+          res.body.should.have.property('errors')
+          res.body.errors.should.be.a('array')
+
+          res.body.errors.forEach(item => {
+            item.should.be.a('object')
+
+            item.should.have.property('location')
+            item.location.should.be.a('string')
+
+            item.should.have.property('param')
+            item.param.should.be.a('string')
+
+            item.should.have.property('value')
+
+            item.should.have.property('msg')
+            item.msg.should.be.a('string')
+          })
+
+          let keys = Object.keys(res.body)
+          keys.should.to.eql(['errorCode', 'description', 'errors'])
+
+          res.body.errors.forEach(item => {
+            keys = Object.keys(item)
+            keys.should.to.eql(['location', 'param', 'value', 'msg'])
+          })
+
+          done()
+        })
+    })
+  })
+
   it('it should successfully delete one planet on /planets/:id DELETE', done => {
     Planet.create(planet).then(res => {
       const planetId = res._id.toString()

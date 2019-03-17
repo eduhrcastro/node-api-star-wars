@@ -85,5 +85,12 @@ module.exports = {
       errorCode: 'SRV-001',
       description: 'An internal error occurred. This request has been logged.'
     }
+  },
+  SRV002: {
+    httpCode: 404,
+    response: {
+      errorCode: 'SRV-002',
+      description: 'This request is not found.'
+    }
   }
 }

@@ -22,7 +22,7 @@ module.exports = app => {
         .sort({name: 1})
         .lean()
 
-      let count = await Planets.count()
+      let count = await Planets.countDocuments()
 
       res.status(200).send(response.getPlanets(url, query, count, page, perPage))
     } catch (ex) {
@@ -68,6 +68,9 @@ module.exports = app => {
 
       if (_.isEmpty(bodyData)) {
         res.status(204).end()
+        return
+      } else if (await Planets.findById(req.params.id) == null) {
+        res.status(404).end()
         return
       }
 

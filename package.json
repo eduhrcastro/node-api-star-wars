@@ -76,7 +76,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_PATH=. NODE_ENV=development nyc mocha --timeout 10000 --exit specs/index.js",
+    "test": "NODE_PATH=. NODE_ENV=development nyc mocha --timeout 15000 --exit specs/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint app.js app/** config/** specs/** public/app/** --ext .js",
     "htmlhint": "htmlhint public/app/views/** --ext .html",
